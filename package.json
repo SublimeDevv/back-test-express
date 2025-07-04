@@ -6,7 +6,12 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:auth": "node test-auth-api.js",
+    "test:seed": "node test-seed-api.js",
+    "seed:create-tables": "node create-tables.js",
+    "seed:quick": "node test-seed-api.js --quick",
+    "seed:clear": "node test-seed-api.js --clear"
   },
   "keywords": [
     "express",
@@ -18,11 +23,15 @@
   "author": "Desarrollador",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
+    "express-rate-limit": "^7.5.1",
     "helmet": "^7.1.0",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "mysql2": "^3.14.1",
     "swagger-jsdoc": "^6.2.8",
