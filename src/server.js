@@ -35,7 +35,7 @@ const swaggerOptions = {
     definition: {
         openapi: '3.0.0',
         info: {
-            title: 'API de Formulario con Autenticación',
+            title: 'API DE FORMULARIO CON AUTENTICACIÓN JWT',
             version: '1.0.0',
             description: 'API para recibir datos de formularios con sistema de autenticación JWT',
             contact: {
