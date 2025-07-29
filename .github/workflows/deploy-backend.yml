@@ -24,6 +24,8 @@ jobs:
             
             git pull origin main
             
+            cd /home/ubuntu/docker-efrain
+            
             docker-compose stop backend
             
             docker-compose rm -f backend
