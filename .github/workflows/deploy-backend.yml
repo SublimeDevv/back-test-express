@@ -21,7 +21,7 @@ jobs:
             echo "Iniciando deploy del backend..."
             
             cd /home/ubuntu/docker-efrain/backend
-            
+             
             git pull origin main
             
             cd /home/ubuntu/docker-efrain
@@ -32,7 +32,11 @@ jobs:
             
             sudo docker rmi backend-form:latest || true
             
-            sudo docker compose up -d --build backend
+            sudo docker builder prune -f
+            
+            sudo docker compose build --no-cache backend
+            
+            sudo docker compose up -d backend
             
             sudo docker compose ps backend
             
