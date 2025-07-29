@@ -1,3 +1,4 @@
+name: Deploy Backend
 on:
   push:
     branches:
@@ -8,7 +9,6 @@ jobs:
   run_pull:
     name: run pull
     runs-on: ubuntu-latest
-
     steps:
       - name: ejecutar comando remoto
         uses: appleboy/ssh-action@v1.0.0
@@ -18,4 +18,20 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            echo "prueba de deploy"
+            echo "Iniciando deploy del backend..."
+            
+            cd /home/ubuntu/docker-efrain/backend
+            
+            git pull origin main
+            
+            docker-compose stop backend
+            
+            docker-compose rm -f backend
+            
+            docker rmi backend-form:latest || true
+            
+            docker-compose up -d --build backend
+            
+            docker-compose ps backend
+            
+            echo "Deploy del backend completado"
